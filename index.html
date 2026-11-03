@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D1116">
+<title>DL AVTO - кузовной ремонт в Тюмени (демо)</title>
+<meta name="description" content="Демонстрационный сайт ателье кузовного ремонта DL AVTO в Тюмени: выбор услуг, схема кузова, заявка на оценку ремонта. Неофициальный сайт.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D1116'/%3E%3Cpath d='M5 21c2-6 5-9 9-9h6c3 0 5 3 7 9' fill='none' stroke='%23FF921E' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0D1116; --bg2:#141a21; --bg3:#1b222b;
+  --amber:#FF921E; --amber-d:#e07a0c; --cream:#F7F4EF; --ink:#F2F0EB; --soft:#A8AFB8;
+  --line:rgba(255,255,255,.11); --r:18px;
+  --f:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.55;overflow-x:hidden}
+img,svg,iframe{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:14px;border:0;cursor:pointer;text-decoration:none;font-weight:700;font-size:16px;background:var(--amber);color:#1a0d00;box-shadow:0 8px 28px rgba(255,146,30,.32);transition:background .2s,transform .2s,box-shadow .2s}
+.btn:hover{background:#ffa43f;transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+.btn--ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3)}
+.btn--light{background:#fff;color:#161a20;box-shadow:0 4px 16px rgba(0,0,0,.12);border:1px solid #e4dfd6}
+.btn--light:hover{background:#fbf9f5}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(13,17,22,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;gap:28px;height:72px}
+.logo{font-weight:800;font-size:28px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.logo b{color:var(--amber);font-weight:800}
+.nav{display:flex;gap:30px;margin-left:12px}
+.nav a{text-decoration:none;color:var(--soft);font-weight:600;font-size:15px;transition:color .2s}
+.nav a:hover{color:#fff}
+.top__tel{margin-left:auto;display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;white-space:nowrap}
+.top__tel svg{width:18px;height:18px;color:var(--amber)}
+.top .btn{min-height:44px;padding:0 20px;font-size:15px}
+
+/* hero */
+.hero{position:relative;padding:56px 0 0;overflow:hidden;isolation:isolate}
+.hero__bg{position:absolute;inset:auto 0 0 0;height:min(62%,520px);z-index:-1;-webkit-mask-image:linear-gradient(to top,#000 50%,transparent);mask-image:linear-gradient(to top,#000 50%,transparent)}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:left bottom}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(1000px 520px at 78% 12%,rgba(255,146,30,.12),transparent 60%),linear-gradient(90deg,rgba(13,17,22,.78),rgba(13,17,22,0) 62%)}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:40px;align-items:start;padding-bottom:150px}
+.swoosh{width:min(430px,78%);height:auto;margin-bottom:-6px;margin-left:80px;overflow:visible}
+.swoosh path{fill:none;stroke:var(--amber);stroke-width:3.4;stroke-linecap:round;stroke-dasharray:640;stroke-dashoffset:640;animation:draw 1.8s .2s ease-out forwards;filter:drop-shadow(0 0 8px rgba(255,146,30,.55))}
+@keyframes draw{to{stroke-dashoffset:0}}
+.eyebrow{display:flex;gap:10px;align-items:center;font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:#d9dde2;font-weight:600}
+.eyebrow::before{content:"";width:3px;height:22px;background:var(--amber);transform:skewX(-18deg);border-radius:1px}
+.eyebrow b{font-weight:800;color:#fff}
+h1{font-size:clamp(2.5rem,1.2rem + 5.2vw,5rem);line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:20px 0 22px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--amber)}
+.lead{font-size:clamp(1.05rem,.95rem + .5vw,1.3rem);color:#d8dce1;border-left:3px solid var(--amber);padding-left:18px;max-width:560px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero__facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;color:var(--soft);font-size:14px}
+.hero__facts span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--amber);margin-right:8px;vertical-align:middle}
+
+/* form card */
+.card{background:linear-gradient(180deg,#fbf9f5,#efebe4);color:#171a1f;border-radius:26px;padding:26px;box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.7)}
+.card__head{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+.card__ico{width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#ffab4d,#ff7f08);display:grid;place-items:center;flex:none}
+.card__ico svg{width:30px;height:30px;color:#fff}
+.card h2{font-size:clamp(1.25rem,1.1rem + .6vw,1.55rem);line-height:1.15;font-weight:800;color:#12151a}
+.card__sub{font-size:14px;color:#5b616a;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.counter{font-weight:800;color:#b45a00}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 14px;list-style:none}
+.opt label{font-size:15px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.opt label{display:flex;align-items:center;gap:10px;min-height:48px;padding:6px 10px;line-height:1.2;border-radius:12px;background:#fff;border:1.5px solid #e6e1d8;font-weight:700;font-size:16px;cursor:pointer;transition:background .15s,border-color .15s;color:#171a1f}
+.opt .box{width:26px;height:26px;border-radius:8px;border:2px solid #c7c1b6;background:#fff;flex:none;display:grid;place-items:center;transition:all .15s}
+.opt .box svg{width:16px;height:16px;color:#fff;opacity:0;transform:scale(.6);transition:all .15s}
+.opt input:checked + label{background:#fff1df;border-color:var(--amber)}
+.opt input:checked + label .box{background:var(--amber);border-color:var(--amber)}
+.opt input:checked + label .box svg{opacity:1;transform:none}
+.opt input:focus-visible + label{outline:3px solid var(--amber);outline-offset:2px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld{display:grid;gap:5px;margin-bottom:10px}
+.fld span{font-size:13px;font-weight:700;color:#4a5058}
+.fld input,.fld select,.fld textarea{width:100%;min-height:46px;padding:10px 13px;border-radius:12px;border:1.5px solid #e0dbd1;background:#fff;color:#171a1f;font-size:16px}
+.fld textarea{min-height:84px;resize:vertical}
+.fld input::placeholder,.fld textarea::placeholder{color:#8b9097}
+.zones-line{font-size:14px;color:#4a5058;margin:2px 0 12px;padding:10px 12px;border-radius:12px;background:#fff;border:1.5px dashed #d8d2c6}
+.zones-line b{color:#171a1f}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.actions .btn{padding:0 12px;font-size:15px}
+.status{min-height:22px;margin-top:10px;font-size:14px;font-weight:600;color:#1c7a3a}
+.status.err{color:#b3261e}
+.note{font-size:12.5px;color:#6a7078;margin-top:8px;line-height:1.45}
+
+/* sections */
+section{padding:92px 0}
+.sec-h{max-width:720px;margin-bottom:40px}
+.sec-h .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:800;margin-bottom:12px}
+h2.t{font-size:clamp(1.9rem,1.3rem + 2.2vw,3rem);line-height:1.1;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+.sec-h p{color:var(--soft);margin-top:14px;font-size:1.05rem}
+.alt{background:var(--bg2);border-block:1px solid var(--line)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.svc button{position:relative;text-align:left;cursor:pointer;background:var(--bg3);border:1.5px solid var(--line);border-radius:var(--r);padding:22px 22px 22px;display:grid;gap:8px;min-height:158px;transition:border-color .2s,background .2s,transform .2s}
+.svc button:hover{transform:translateY(-3px);border-color:rgba(255,146,30,.5)}
+.svc .n{font-weight:800;color:var(--amber);font-size:14px;letter-spacing:.1em}
+.svc h3{font-size:1.2rem;font-weight:800;line-height:1.2}
+.svc p{font-size:14.5px;color:var(--soft)}
+.svc .tick{position:absolute;top:18px;right:18px;width:28px;height:28px;border-radius:9px;border:2px solid #4a525c;display:grid;place-items:center;transition:all .2s}
+.svc .tick svg{width:16px;height:16px;color:#1a0d00;opacity:0}
+.svc button[aria-pressed="true"]{background:linear-gradient(180deg,rgba(255,146,30,.2),rgba(255,146,30,.06));border-color:var(--amber)}
+.svc button[aria-pressed="true"] .tick{background:var(--amber);border-color:var(--amber)}
+.svc button[aria-pressed="true"] .tick svg{opacity:1}
+.price{margin-top:10px;font-size:13.5px;color:var(--soft)}
+.price b{color:#fff}
+.svc-foot{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:26px}
+.svc-foot .cnt{color:var(--soft)}
+.svc-foot .cnt b{color:var(--amber);font-size:1.2rem}
+
+/* scheme */
+.scheme{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.car{width:100%;max-width:380px;margin-inline:auto}
+.car svg{width:100%;height:auto;overflow:visible}
+.zone{cursor:pointer;outline:none}
+.zone path,.zone rect{fill:#222a34;stroke:#46505d;stroke-width:1.6;transition:fill .18s,stroke .18s,filter .18s}
+.zone:hover path,.zone:hover rect{fill:#34404d}
+.zone:focus-visible path,.zone:focus-visible rect{stroke:#fff;stroke-width:3}
+.zone.on path,.zone.on rect{fill:rgba(255,146,30,.42);stroke:var(--amber);stroke-width:2.6;filter:drop-shadow(0 0 7px rgba(255,146,30,.6))}
+.zone text{font-size:11px;font-weight:700;fill:#9aa3ad;text-anchor:middle;pointer-events:none}
+.zone.on text{fill:#fff}
+.car .out{fill:none;stroke:var(--amber);stroke-width:2.2;opacity:.85;filter:drop-shadow(0 0 6px rgba(255,146,30,.55))}
+.car .wheel{fill:#0a0d11;stroke:#38414c;stroke-width:1.5}
+.car .lbl{font-size:11px;fill:#6f7882;text-anchor:middle;letter-spacing:.14em;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 10px;min-height:42px}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 8px 0 14px;border-radius:99px;background:rgba(255,146,30,.15);border:1px solid var(--amber);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+.chip i{font-style:normal;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.14);font-size:14px;line-height:1}
+.empty{color:var(--soft);font-size:15px;align-self:center}
+.scheme__side p{color:var(--soft);margin-top:12px}
+.scheme__side .btn{margin-top:6px}
+
+/* works */
+.works{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.shot{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#000;min-height:260px}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot figcaption{position:absolute;left:14px;bottom:14px;right:14px;font-size:13px;background:rgba(13,17,22,.84);border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:#d6dae0}
+.works__txt{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.works__txt h3{font-size:1.4rem;line-height:1.2;font-weight:800}
+.works__txt p{color:var(--soft)}
+.works__txt .btn{align-self:flex-start}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;list-style:none;counter-reset:s}
+.steps li{position:relative;background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--amber);color:#1a0d00;font-weight:800;margin-bottom:16px}
+.steps h3{font-size:1.1rem;margin-bottom:8px;font-weight:800}
+.steps p{color:var(--soft);font-size:14.5px}
+
+/* reviews */
+.rate{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-bottom:28px}
+.rate__n{font-size:3.2rem;font-weight:800;line-height:1}
+.stars{display:inline-flex;gap:3px;color:var(--amber)}
+.stars svg{width:20px;height:20px}
+.rate__t{color:var(--soft);font-size:15px}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
+.rev blockquote{font-size:1.02rem;color:#e9e7e2;line-height:1.55;flex:1}
+.rev blockquote::before{content:"\201C";display:block;font-size:46px;line-height:.6;color:var(--amber);font-weight:800}
+.rev footer{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;border-top:1px solid var(--line);padding-top:14px}
+.rev footer b{font-weight:800}
+.rev footer span{color:var(--soft)}
+.src{margin-top:20px;color:var(--soft);font-size:13.5px}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px}
+.dl{display:grid;gap:18px;align-content:start}
+.dl div{border-bottom:1px solid var(--line);padding-bottom:16px}
+.dl dt{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:800;margin-bottom:4px}
+.dl dd{font-size:1.1rem;font-weight:600}
+.dl dd a{text-decoration:none}
+.dl dd small{display:block;color:var(--soft);font-weight:400;font-size:13.5px;margin-top:2px}
+.dl .btns{display:flex;flex-wrap:wrap;gap:10px;border:0}
+.map{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:420px;background:#1b222b}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map__fb{position:absolute;left:12px;top:12px;z-index:2;font-size:13px;background:rgba(13,17,22,.88);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.map__fb a{color:var(--amber);font-weight:700}
+
+/* final */
+.final{text-align:center;padding:100px 0}
+.final .wrap{max-width:760px}
+.final p{color:var(--soft);margin:16px 0 28px;font-size:1.1rem}
+.final .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+footer.ft{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--soft);font-size:13.5px}
+footer.ft .wrap{display:grid;gap:8px}
+footer.ft strong{color:#fff}
+
+/* responsive */
+@media (max-width:1040px){
+  .nav{display:none}
+  .hero__grid{grid-template-columns:1fr;padding-bottom:40px}
+  .hero__bg{position:relative;height:auto;inset:auto;aspect-ratio:680/356;width:min(100% - 40px,640px);margin:0 auto 40px;border-radius:var(--r);overflow:hidden;-webkit-mask-image:none;mask-image:none;z-index:0;border:1px solid var(--line)}
+  .hero{display:flex;flex-direction:column}
+  .hero > .wrap{order:1}
+  .hero__bg{order:0;margin-bottom:28px}
+  .swoosh{margin-left:0}
+  .scheme,.contacts,.works{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .revs{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .top__in{gap:12px;height:64px}
+  .logo{font-size:23px}
+  .top__tel span{display:none}
+  .top__tel{margin-left:auto}
+  .top .btn{display:none}
+  .top__tel{padding:10px 14px;border:1.5px solid var(--amber);border-radius:12px;color:#fff}
+  .top__tel span.show{display:inline}
+  .hero{padding-top:20px}
+  .swoosh{display:none}
+  .card{padding:20px 16px}
+  .f2{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .actions{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero__cta .btn{flex:1 1 100%}
+  .final{padding:72px 0}
+  .map{min-height:340px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .swoosh path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#top" aria-label="DL AVTO, наверх"><b>DL</b> AVTO</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#uslugi">Услуги</a>
+      <a href="#shema">Схема кузова</a>
+      <a href="#otzyvy">Отзывы</a>
+      <a href="#kontakty">Как доехать</a>
+    </nav>
+    <a class="top__tel" href="tel:+79292610887" aria-label="Позвонить +7 929 261-08-87">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+      <span class="show">+7 (929) 261-08-87</span>
+    </a>
+    <a class="btn" href="#zayavka">Оценить ремонт</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-bottom:0">
+  <div class="hero__bg">
+    <picture>
+      <source media="(max-width:1040px)" srcset="assets/hero-strip-m.webp">
+      <img src="assets/hero-strip.webp" width="1120" height="356" alt="Демонстрационная иллюстрация: серый автомобиль и крыло на стойке в боксе кузовного ремонта" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="wrap hero__grid">
+    <div>
+      <svg class="swoosh" viewBox="0 0 430 90" aria-hidden="true"><path d="M4 84C36 66 62 38 112 26c46-11 96-14 150-14 56 0 94 18 128 40 14 9 26 20 36 32"/></svg>
+      <p class="eyebrow">Ателье <b>кузовного ремонта</b> · Тюмень</p>
+      <h1>Вернём автомобилю <em>форму.</em></h1>
+      <p class="lead">Кузовной ремонт, покраска, удаление вмятин. Выберите задачи - обсудим ремонт и стоимость.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#zayavka">Оценить ремонт</a>
+        <a class="btn btn--ghost" href="#shema">Отметить повреждения на схеме</a>
+      </div>
+      <div class="hero__facts">
+        <span>ул. 30 лет Победы, 7, стр. 40</span>
+        <span>Рейтинг на Яндекс Картах 4,5</span>
+        <span>Оценка по фото - после связи с мастером</span>
+      </div>
+    </div>
+
+    <form class="card" id="zayavka" onsubmit="return false" novalidate aria-labelledby="fh">
+      <div class="card__head">
+        <div class="card__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M4 17v-4l2-5a2 2 0 0 1 2-1.4h8a2 2 0 0 1 2 1.4l2 5v4M7.5 13.5h.01M16.5 13.5h.01"/></svg></div>
+        <div>
+          <h2 id="fh">Узнать стоимость ремонта</h2>
+        </div>
+      </div>
+      <div class="card__sub"><span>Отметьте одну или несколько услуг</span><span class="counter" id="cnt" aria-live="polite">Выбрано: 0</span></div>
+      <ul class="opts" id="opts"></ul>
+
+      <p class="zones-line" id="zonesLine">Повреждённые детали: <b>не отмечены</b> (можно отметить на <a href="#shema">схеме кузова</a>)</p>
+
+      <div class="f2">
+        <label class="fld"><span>Желаемая дата (пожелание)</span><input type="date" id="fDate"></label>
+        <label class="fld"><span>Удобное время</span>
+          <select id="fTime">
+            <option value="">Не важно</option>
+            <option>Утро (9:00-12:00)</option>
+            <option>День (12:00-16:00)</option>
+            <option>Вечер (16:00-20:00)</option>
+          </select>
+        </label>
+      </div>
+      <div class="f2">
+        <label class="fld"><span>Автомобиль (необязательно)</span><input type="text" id="fCar" placeholder="Марка, модель, год" autocomplete="off"></label>
+        <label class="fld"><span>Ваш телефон (необязательно)</span><input type="tel" id="fTel" placeholder="+7" autocomplete="tel"></label>
+      </div>
+      <label class="fld"><span>Что произошло и что нужно сделать?</span><textarea id="fMsg" placeholder="Например: задели бампер на парковке, нужно покрасить"></textarea></label>
+
+      <div class="actions">
+        <button class="btn btn--light" type="button" id="copy">Скопировать заявку</button>
+        <a class="btn" id="callBtn" href="tel:+79292610887">Позвонить</a>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="note">Дата и время - пожелание, это не запись. Заявка не отправляется с сайта: скопируйте её и сообщите мастеру по телефону. Фото повреждений приложите вручную при разговоре.</p>
+    </form>
+  </div>
+</section>
+
+<section id="uslugi" class="alt">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="k">Кузовные работы</p>
+      <h2 class="t">Выберите всё, что нужно сделать</h2>
+      <p>Нажмите на карточки - можно выбрать несколько. Повторное нажатие снимает только эту услугу. Выбор попадает в заявку.</p>
+    </div>
+    <div class="svc" id="svc"></div>
+    <div class="svc-foot">
+      <span class="cnt">Выбрано услуг: <b id="cnt2">0</b></span>
+      <a class="btn" href="#zayavka">К заявке</a>
+    </div>
+    <p class="price"><b>Стоимость:</b> уточняется после обсуждения задачи с мастером. Цены на сайте не указаны намеренно - подтверждённого прайса нет.</p>
+  </div>
+</section>
+
+<section id="shema">
+  <div class="wrap scheme">
+    <div class="car" id="car" aria-label="Схема автомобиля, вид сверху"></div>
+    <div class="scheme__side">
+      <p style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);font-weight:800;margin:0 0 12px">Схема кузова</p>
+      <h2 class="t">Отметьте, что повреждено</h2>
+      <p>Нажимайте на детали схемы - выбранные зоны подсветятся и попадут в заявку. Это выбор зоны для разговора с мастером, а не подтверждённая услуга и не оценка ремонта. Левая и правая стороны - как смотрит водитель.</p>
+      <div class="chips" id="chips" aria-live="polite"></div>
+      <button class="btn btn--ghost" type="button" id="otherZone" aria-pressed="false">Другая деталь</button>
+      <a class="btn" href="#zayavka" style="margin-left:8px">К заявке</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="raboty">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="k">Работы</p>
+      <h2 class="t">Реальные работы - с карточки на Картах</h2>
+    </div>
+    <div class="works">
+      <figure class="shot">
+        <img src="assets/hero-strip.webp" width="1120" height="356" alt="Демонстрационная иллюстрация, не фото работ DL AVTO" loading="lazy">
+        <figcaption>Иллюстрация для макета (сделана ИИ). Это не работы и не бокс DL AVTO.</figcaption>
+      </figure>
+      <div class="works__txt">
+        <h3>Фото работ добавим от владельца</h3>
+        <p>На карточке DL AVTO на Яндекс Картах 7 фото. Права на их публикацию не подтверждены, поэтому на демо-сайт они не вставлены, а «до/после» не рисуем.</p>
+        <p>Для боевого сайта понадобятся оригиналы от владельца: ремзона, процесс покраски, готовые автомобили.</p>
+        <a class="btn btn--ghost" href="https://yandex.ru/maps/org/dl_avto/162692297561/" target="_blank" rel="noopener noreferrer">Фото на Яндекс Картах</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="k">Как это работает</p>
+      <h2 class="t">От обращения до ремонта - четыре шага</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Обращение</h3><p>Вы выбираете услуги, отмечаете детали и копируете заявку - или просто звоните.</p></li>
+      <li><h3>Уточнение повреждений</h3><p>Мастер уточняет, что случилось. Фото повреждений можно показать при связи.</p></li>
+      <li><h3>Согласование</h3><p>Обсуждаете объём работ и стоимость до начала ремонта. Окончательно - после осмотра.</p></li>
+      <li><h3>Ремонт</h3><p>Кузовные и покрасочные работы по согласованному списку.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt" id="otzyvy">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="k">Отзывы</p>
+      <h2 class="t">Что пишут клиенты на Яндекс Картах</h2>
+    </div>
+    <div class="rate">
+      <span class="rate__n">4,5</span>
+      <span>
+        <span class="stars" aria-label="Рейтинг 4,5 из 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" style="opacity:.45"><path d="m12 2 3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.6 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg>
+        </span>
+        <span class="rate__t" style="display:block">23 оценки, 16 отзывов на Яндекс Картах</span>
+      </span>
+      <a class="btn btn--ghost" href="https://yandex.ru/maps/org/dl_avto/162692297561/reviews/" target="_blank" rel="noopener noreferrer">Читать все отзывы</a>
+    </div>
+    <div class="revs">
+      <article class="rev">
+        <blockquote>Отличный сервис! Вежливые сотрудники, качественный ремонт! Индивидуальный подход к каждому клиенту.</blockquote>
+        <footer><b>Иван Таратунин</b><span>9 февраля 2023</span></footer>
+      </article>
+      <article class="rev">
+        <blockquote>Большая благодарность Левану за качественный и быстрый ремонт (малярка в моем случае). Цены адекватные</blockquote>
+        <footer><b>Александр Пинигин</b><span>17 июля 2023</span></footer>
+      </article>
+      <article class="rev">
+        <blockquote>Отличное ателье кузовного ремонта, всем советую ребята молодцы делают свою работу очень качественно!</blockquote>
+        <footer><b>павел д.</b><span>29 сентября 2021</span></footer>
+      </article>
+    </div>
+    <p class="src">Отзывы приведены дословно с карточки DL AVTO на Яндекс Картах (источник: <a href="https://yandex.ru/maps/org/dl_avto/162692297561/reviews/" target="_blank" rel="noopener noreferrer">yandex.ru/maps</a>). Данные сняты 31.10.2026, перед публикацией нужно сверить.</p>
+  </div>
+</section>
+
+<section id="kontakty">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="k">Как доехать</p>
+      <h2 class="t">Тюмень, ул. 30 лет Победы, 7, стр. 40</h2>
+    </div>
+    <div class="contacts">
+      <dl class="dl">
+        <div><dt>Адрес</dt><dd>Тюмень, улица 30 лет Победы, 7, строение 40</dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79292610887">+7 (929) 261-08-87</a></dd></div>
+        <div><dt>Часы работы</dt><dd>09:00-20:00<small>по карточке на Картах, дни недели нужно уточнить</small></dd></div>
+        <div class="btns">
+          <a class="btn" id="route" href="https://yandex.ru/maps/?mode=routes&amp;rtt=auto&amp;rtext=~57.133228%2C65.55224&amp;z=16" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
+          <a class="btn btn--ghost" href="tel:+79292610887">Позвонить</a>
+        </div>
+      </dl>
+      <div class="map">
+        <iframe title="Карта: DL AVTO, улица 30 лет Победы, 7, строение 40, Тюмень" src="https://yandex.ru/map-widget/v1/?ll=65.55224%2C57.133228&z=16&pt=65.55224%2C57.133228%2Cpm2gnm" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <p class="map__fb">Карта не открылась? <a href="https://yandex.ru/maps/org/dl_avto/162692297561/" target="_blank" rel="noopener noreferrer">Открыть на Яндекс Картах</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt final">
+  <div class="wrap">
+    <h2 class="t">Расскажите, что случилось с автомобилем</h2>
+    <p>Выберите услуги и детали, скопируйте заявку или просто позвоните - обсудим ремонт и стоимость.</p>
+    <div class="row">
+      <a class="btn" href="#zayavka">Оценить ремонт</a>
+      <a class="btn btn--ghost" href="tel:+79292610887">+7 (929) 261-08-87</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <p><strong>Демонстрационный сайт, не официальный.</strong> Сделан по данным открытой карточки DL AVTO на Яндекс Картах как пример для владельца. Закрыт от поисковиков.</p>
+    <p>Логотип - текстовое название, не официальный знак. Иллюстрация автомобиля создана ИИ и не показывает работы DL AVTO. Цены, сроки и гарантии не указаны: они не подтверждены.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var SERVICES=[
+    {id:"kuzov",t:"Кузовной ремонт",d:"Жестяные работы, ремонт повреждений после ДТП и парковки."},
+    {id:"pokraska",t:"Покраска деталей",d:"Окраска автомобиля и отдельных деталей."},
+    {id:"lokalnaya",t:"Локальная окраска",d:"Покраска небольшого участка без перекраски всей детали."},
+    {id:"vmyatiny",t:"Удаление вмятин",d:"Устранение вмятин без покраски, если это возможно."},
+    {id:"geometriya",t:"Восстановление геометрии",d:"Работа с геометрией кузова после сильных ударов."},
+    {id:"svarka",t:"Сварочные работы",d:"Сварка кузовных элементов."},
+    {id:"polirovka",t:"Полировка кузова",d:"Полировка лакокрасочного покрытия."}
+  ];
+  var ZONES=[
+    {id:"bf",t:"Передний бампер"},{id:"hood",t:"Капот"},
+    {id:"fl",t:"Переднее крыло левое"},{id:"fr",t:"Переднее крыло правое"},
+    {id:"dfl",t:"Передняя дверь левая"},{id:"dfr",t:"Передняя дверь правая"},
+    {id:"drl",t:"Задняя дверь левая"},{id:"drr",t:"Задняя дверь правая"},
+    {id:"roof",t:"Крыша"},
+    {id:"ql",t:"Заднее крыло левое"},{id:"qr",t:"Заднее крыло правое"},
+    {id:"trunk",t:"Крышка багажника"},{id:"br",t:"Задний бампер"},
+    {id:"other",t:"Другая деталь"}
+  ];
+  var selS=new Set(), selZ=new Set();
+  var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var $=function(s){return document.querySelector(s)};
+  var nameS=function(id){return SERVICES.filter(function(x){return x.id===id})[0].t};
+  var nameZ=function(id){return ZONES.filter(function(x){return x.id===id})[0].t};
+
+  /* form checkboxes */
+  var opts=$("#opts");
+  SERVICES.forEach(function(s){
+    var li=document.createElement("li"); li.className="opt";
+    li.innerHTML='<input type="checkbox" id="o-'+s.id+'" value="'+s.id+'"><label for="o-'+s.id+'"><span class="box">'+CHECK+'</span>'+s.t+'</label>';
+    li.querySelector("input").addEventListener("change",function(e){ toggleS(s.id,e.target.checked); });
+    opts.appendChild(li);
+  });
+  /* cards */
+  var svc=$("#svc");
+  SERVICES.forEach(function(s,i){
+    var b=document.createElement("button"); b.type="button"; b.id="c-"+s.id; b.setAttribute("aria-pressed","false");
+    b.innerHTML='<span class="n">0'+(i+1)+'</span><h3>'+s.t+'</h3><p>'+s.d+'</p><span class="tick">'+CHECK+'</span>';
+    b.addEventListener("click",function(){ toggleS(s.id,!selS.has(s.id)); });
+    svc.appendChild(b);
+  });
+  function toggleS(id,on){ if(on) selS.add(id); else selS.delete(id); sync(); }
+  function toggleZ(id){ if(selZ.has(id)) selZ.delete(id); else selZ.add(id); sync(); }
+
+  /* car scheme (top view, front is up) */
+  var car=$("#car");
+  var Z=function(id,shape,tx,ty,label){
+    return '<g class="zone" data-z="'+id+'" tabindex="0" role="button" aria-pressed="false" aria-label="'+nameZ(id)+'"><title>'+nameZ(id)+'</title>'+shape+(label?'<text x="'+tx+'" y="'+ty+'">'+label+'</text>':'')+'</g>';
+  };
+  car.innerHTML='<svg viewBox="0 0 260 480" role="group" aria-label="Схема автомобиля">'
+   +'<ellipse class="wheel" cx="30" cy="112" rx="9" ry="24"/><ellipse class="wheel" cx="230" cy="112" rx="9" ry="24"/>'
+   +'<ellipse class="wheel" cx="30" cy="364" rx="9" ry="24"/><ellipse class="wheel" cx="230" cy="364" rx="9" ry="24"/>'
+   +Z("bf",'<path d="M56 62C56 34 88 20 130 20s74 14 74 42z"/>',130,50,"Бампер")
+   +Z("hood",'<path d="M78 70h104l-4 88H82z"/>',130,118,"Капот")
+   +Z("fl",'<path d="M44 78l32-8v88H44z"/>',0,0,"")
+   +Z("fr",'<path d="M216 78l-32-8v88h32z"/>',0,0,"")
+   +Z("dfl",'<path d="M44 162h32v88H44z"/>',0,0,"")
+   +Z("dfr",'<path d="M216 162h-32v88h32z"/>',0,0,"")
+   +Z("drl",'<path d="M44 254h32v82H44z"/>',0,0,"")
+   +Z("drr",'<path d="M216 254h-32v82h32z"/>',0,0,"")
+   +Z("roof",'<rect x="80" y="162" width="100" height="174" rx="16"/>',130,252,"Крыша")
+   +Z("ql",'<path d="M44 340h32v62l-16 6z"/>',0,0,"")
+   +Z("qr",'<path d="M216 340h-32v62l16 6z"/>',0,0,"")
+   +Z("trunk",'<path d="M80 340h100l6 62H74z"/>',130,380,"Багажник")
+   +Z("br",'<path d="M60 412h140c0 30-30 48-70 48s-70-18-70-48z"/>',130,440,"Бампер")
+   +'<path class="out" d="M52 70C60 36 92 18 130 18s70 18 78 52c6 40 8 120 8 170s-2 120-8 170c-6 40-30 72-78 72s-72-32-78-72c-6-50-8-120-8-170S46 110 52 70z" pointer-events="none"/>'
+   +'<text class="lbl" x="130" y="10">ПЕРЕД</text><text class="lbl" x="130" y="478">ЗАД</text>'
+   +'<text class="lbl" x="14" y="250" transform="rotate(-90 14 250)">ЛЕВО</text><text class="lbl" x="246" y="250" transform="rotate(90 246 250)">ПРАВО</text>'
+   +'</svg>';
+  car.querySelectorAll(".zone").forEach(function(g){
+    var id=g.getAttribute("data-z");
+    g.addEventListener("click",function(){ toggleZ(id); });
+    g.addEventListener("keydown",function(e){ if(e.key===" "||e.key==="Enter"){ e.preventDefault(); toggleZ(id); } });
+  });
+  $("#otherZone").addEventListener("click",function(){ toggleZ("other"); });
+
+  var chips=$("#chips");
+  function sync(){
+    SERVICES.forEach(function(s){
+      var on=selS.has(s.id);
+      $("#o-"+s.id).checked=on;
+      $("#c-"+s.id).setAttribute("aria-pressed",on);
+    });
+    car.querySelectorAll(".zone").forEach(function(g){
+      var on=selZ.has(g.getAttribute("data-z")); g.classList.toggle("on",on); g.setAttribute("aria-pressed",on);
+    });
+    var oz=$("#otherZone"), o=selZ.has("other"); oz.setAttribute("aria-pressed",o); oz.textContent=o?"Другая деталь: выбрано":"Другая деталь";
+    $("#cnt").textContent="Выбрано: "+selS.size; $("#cnt2").textContent=selS.size;
+    chips.innerHTML="";
+    if(!selZ.size){ chips.innerHTML='<span class="empty">Пока ничего не отмечено</span>'; }
+    ZONES.forEach(function(z){
+      if(!selZ.has(z.id)) return;
+      var c=document.createElement("button"); c.type="button"; c.className="chip"; c.setAttribute("aria-label","Снять: "+z.t);
+      c.innerHTML=z.t+'<i aria-hidden="true">&times;</i>';
+      c.addEventListener("click",function(){ toggleZ(z.id); });
+      chips.appendChild(c);
+    });
+    var zl=$("#zonesLine");
+    zl.innerHTML=selZ.size?'Повреждённые детали ('+selZ.size+'): <b>'+ZONES.filter(function(z){return selZ.has(z.id)}).map(function(z){return z.t.toLowerCase()}).join(", ")+'</b>'
+      :'Повреждённые детали: <b>не отмечены</b> (можно отметить на <a href="#shema">схеме кузова</a>)';
+    setStatus("");
+  }
+
+  /* date: no past days */
+  var d=new Date(), pad=function(n){return (n<10?"0":"")+n};
+  $("#fDate").min=d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+
+  function fmtDate(v){ if(!v) return ""; var p=v.split("-"); return p[2]+"."+p[1]+"."+p[0]; }
+  function build(){
+    var L=["Заявка на оценку ремонта - DL AVTO (демо-сайт)",""];
+    var sv=SERVICES.filter(function(s){return selS.has(s.id)});
+    L.push("Услуги ("+sv.length+"):");
+    if(sv.length) sv.forEach(function(s){ L.push("- "+s.t); }); else L.push("- не выбраны");
+    var zs=ZONES.filter(function(z){return selZ.has(z.id)});
+    L.push("","Повреждённые детали ("+zs.length+"): "+(zs.length?zs.map(function(z){return z.t.toLowerCase()}).join(", "):"не отмечены"));
+    var car=$("#fCar").value.trim(); if(car) L.push("Автомобиль: "+car);
+    var dt=fmtDate($("#fDate").value), tm=$("#fTime").value;
+    L.push("Желаемая дата: "+(dt||"не указана")+" (пожелание, не запись)");
+    L.push("Удобное время: "+(tm||"не важно")+" (пожелание)");
+    var m=$("#fMsg").value.trim(); L.push("Комментарий: "+(m||"нет"));
+    var t=$("#fTel").value.trim(); if(t) L.push("Телефон клиента: "+t);
+    L.push("","Фото повреждений приложу вручную при разговоре.","Стоимость обсуждается после уточнения задачи.");
+    return L.join("\n");
+  }
+  function setStatus(msg,err){ var s=$("#status"); s.textContent=msg; s.className="status"+(err?" err":""); }
+  function fallbackCopy(txt){
+    var ta=document.createElement("textarea"); ta.value=txt; ta.setAttribute("readonly",""); ta.style.cssText="position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0,txt.length);
+    var ok=false; try{ ok=document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); return ok;
+  }
+  $("#copy").addEventListener("click",function(){
+    if(!selS.size && !selZ.size && !$("#fMsg").value.trim()){ setStatus("Отметьте услугу или деталь, либо опишите задачу.",true); return; }
+    var txt=build();
+    var done=function(){ setStatus("Заявка скопирована. Вставьте её в сообщение или назовите мастеру по телефону."); };
+    if(fallbackCopy(txt)){ done(); return; }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(txt).then(done,function(){ setStatus("Не удалось скопировать. Позвоните: +7 (929) 261-08-87.",true); });
+    } else setStatus("Не удалось скопировать. Позвоните: +7 (929) 261-08-87.",true);
+  });
+  window.__dlRequest=build;
+  sync();
+})();
+</script>
+</body>
+</html>
